@@ -1,0 +1,68 @@
+﻿<Window x:Class="SAA2018.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SAA2018"
+        mc:Ignorable="d"
+        Title="Вход" Height="229.788" Width="415.508"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Icon="Resources/MainIcon.png"
+        KeyDown="Window_KeyDown">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="136*"/>
+            <RowDefinition Height="65*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="34*"/>
+            <ColumnDefinition Width="7*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock
+            Name="LogInError"
+            Style="{StaticResource MaterialDesignCaptionTextBlock}" 
+            Foreground="Red"
+            Text="Неверный логин или пароль."
+            Margin="86,110,65,1"
+            Visibility="Hidden" Grid.ColumnSpan="2"/>
+        <materialDesign:PackIcon Kind="Account" Margin="70,41,0,0" Height="13" Width="11" RenderTransformOrigin="0.485,0.487" />
+        <TextBox
+            Name="LoginBox"
+            materialDesign:HintAssist.Hint="Логин" Margin="86,10,65,80" RenderTransformOrigin="0.509,1.341" Grid.ColumnSpan="2">
+            <TextBox.Text>
+                <Binding
+                    Path="Name"
+                    UpdateSourceTrigger="PropertyChanged">
+
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <materialDesign:PackIcon Kind="Key" Margin="70,87,0,0" Height="13" Width="11"/>
+        <PasswordBox
+            Name="PasswordBox"
+            materialDesign:HintAssist.Hint="Пароль" Margin="86,59,65,34" Grid.ColumnSpan="2" />
+        <Button
+            Content="{materialDesign:PackIcon LoginVariant}"
+            ToolTip="Icon" Margin="108,133,17,10" Height="Auto"
+            Click="Login_Click" Grid.RowSpan="2"/>
+
+        <Button
+            Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+            ToolTip="MaterialDesignFloatingActionMiniAccentButton"
+            Click="New_Click" Grid.Column="1" Grid.Row="1">
+            <materialDesign:PackIcon
+                Kind="NewBox"
+                Height="24"
+                Width="24"/>
+        </Button>
+    </Grid>
+</Window>

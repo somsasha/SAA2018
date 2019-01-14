@@ -34,7 +34,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.1.2\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.4.0.1044, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.4.0.1044\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,6 +67,66 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DBL.cs" />
+    <Compile Include="LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805280449143_InitialCreate.cs" />
+    <Compile Include="Migrations\201805280449143_InitialCreate.Designer.cs">
+      <DependentUpon>201805280449143_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805281213590_Migration9.cs" />
+    <Compile Include="Migrations\201805281213590_Migration9.Designer.cs">
+      <DependentUpon>201805281213590_Migration9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\Dean.cs" />
+    <Compile Include="Models\Group.cs" />
+    <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\Rector.cs" />
+    <Compile Include="Models\Specialty.cs" />
+    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\Teacher.cs" />
+    <Compile Include="Pages\DeansGridPage.xaml.cs">
+      <DependentUpon>DeansGridPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FacultiesGridPage.xaml.cs">
+      <DependentUpon>FacultiesGridPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FacultyPage.xaml.cs">
+      <DependentUpon>FacultyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GroupPage.xaml.cs">
+      <DependentUpon>GroupPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GroupsGridPage.xaml.cs">
+      <DependentUpon>GroupsGridPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProfilePage.xaml.cs">
+      <DependentUpon>ProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SpecialtyPage.xaml.cs">
+      <DependentUpon>SpecialtyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SpecialytiesGridPage.xaml.cs">
+      <DependentUpon>SpecialytiesGridPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StudentsGridPage.xaml.cs">
+      <DependentUpon>StudentsGridPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TeachersGridPage.xaml.cs">
+      <DependentUpon>TeachersGridPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UniversityPage.xaml.cs">
+      <DependentUpon>UniversityPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SAAContext.cs" />
+    <Compile Include="SAAContextInitializer.cs" />
+    <Page Include="LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -66,8 +139,54 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\DeansGridPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\FacultiesGridPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\FacultyPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\GroupPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\GroupsGridPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SpecialtyPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SpecialytiesGridPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\StudentsGridPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\TeachersGridPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UniversityPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Faculty.cs" />
+    <Compile Include="Models\University.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -81,17 +200,30 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\201805280449143_InitialCreate.resx">
+      <DependentUpon>201805280449143_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805281213590_Migration9.resx">
+      <DependentUpon>201805281213590_Migration9.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MainIcon.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

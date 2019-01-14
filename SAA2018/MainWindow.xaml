@@ -5,8 +5,97 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SAA2018"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="SAA2018" Height="600" Width="950"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResize"
+        Icon="Resources/MainIcon.png">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="143*"></ColumnDefinition>
+            <ColumnDefinition Width="708*"></ColumnDefinition>
+            <ColumnDefinition Width="91*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="53*"></RowDefinition>
+            <RowDefinition Height="516*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <materialDesign:ColorZone
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
+                Mode="PrimaryDark"
+                Padding="16"
+                CornerRadius="3"
+                materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                Margin="2,2,2,0" Height="51">
+            <StackPanel
+                Orientation="Horizontal">
+                <TextBlock
+                        Name="UniversityName"
+                        TextAlignment="Center"
+                        VerticalAlignment="Center"
+                        Margin="16 0 0 0">
+                </TextBlock>
+            </StackPanel>
+        </materialDesign:ColorZone>
+
+        <materialDesign:ColorZone
+                Grid.Column="0"
+                Grid.Row="1"
+                Mode="PrimaryMid"
+                Padding="16"
+                CornerRadius="3"
+                materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                Margin="2,10,2,0" Height="496">
+            <StackPanel
+                    Orientation="Horizontal">
+                <TextBlock
+                        VerticalAlignment="Center"
+                        Margin="16 0 0 0">
+                </TextBlock>
+            </StackPanel>
+        </materialDesign:ColorZone>
+
+        <ListBox
+                Name="Menu"
+                Grid.Column="0"
+                Grid.Row="1"
+                IsEnabled="True"
+                Margin="10"
+                SelectionChanged="Menu_SelectionChanged">
+        </ListBox>
+
+        <Frame 
+            Name="GridsFrame" 
+            Grid.Column="1" 
+            Grid.Row="1" 
+            Margin="3,10,2,10"
+            BorderBrush="LimeGreen" 
+            BorderThickness="2" 
+            NavigationUIVisibility="Hidden" 
+            Grid.ColumnSpan="2"/>
+
+        <Button
+            Name="LogOff_Button"
+            Grid.Row="0"
+            Grid.Column="2"
+            Click="LogOff_Button_Click"
+            IsEnabled="True"
+            Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+            ToolTip="MaterialDesignFloatingActionMiniAccentButton">
+            <materialDesign:PackIcon
+                Kind="LogoutVariant"
+                Height="24"
+                Width="24" />
+        </Button>
     </Grid>
 </Window>
